@@ -3,9 +3,10 @@
 FROM bobey/docker-gitlab-ci-runner-php
 MAINTAINER  Olivier Balais "obalais@gmail.com"
 
-ENV PHP_VERSION 7.0.4
+ENV PHP_VERSION 7.0.22
 
 COPY files/ci-runner.ini /root/.phpenv/versions/$PHP_VERSION/etc/conf.d/ci-runner.ini
+COPY files/7.0.22 /root/.phpenv/plugins/php-build/share/php-build/definitions/
 
 RUN phpenv install $PHP_VERSION \
     phpenv rehash && \
